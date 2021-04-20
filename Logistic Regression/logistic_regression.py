@@ -49,10 +49,13 @@ class Logistic_Regression:
 
 			for instance in self.data[:batch_size]:
 
-				weight_0_loss += (sigmoid(self.classifier(instance))-instance[1]) * instance[0][0]
-				weight_1_loss += (sigmoid(self.classifier(instance))-instance[1]) * instance[0][1]
-				weight_2_loss += (sigmoid(self.classifier(instance))-instance[1]) * instance[0][2]
-				weight_3_loss += (sigmoid(self.classifier(instance))-instance[1]) * instance[0][3]
+				feature_vector = instance[0]
+				target = instance[1]
+
+				weight_0_loss += (sigmoid(self.classifier(feature_vector))-instance[1]) * instance[0][0]
+				weight_1_loss += (sigmoid(self.classifier(feature_vector))-instance[1]) * instance[0][1]
+				weight_2_loss += (sigmoid(self.classifier(feature_vector))-instance[1]) * instance[0][2]
+				weight_3_loss += (sigmoid(self.classifier(feature_vector))-instance[1]) * instance[0][3]
 
 				bias_loss +=  sigmoid(self.classifier(instance)) - instance[1]
 
